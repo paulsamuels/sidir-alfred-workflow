@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>connections</key>
+	<dict>
+		<key>082C9CE0-2FF2-4865-BF9A-478CDA87D084</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E16D16AC-1B3C-4606-92AB-765D6ECB1190</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>CC3BF280-4BBE-40F1-B7DC-2DF24FDE5A17</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AAA3065F-AFD0-40C4-995E-55BB621614FA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>082C9CE0-2FF2-4865-BF9A-478CDA87D084</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Move app to trash</string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Paul Samuels</string>
+	<key>description</key>
+	<string>Sidir</string>
+	<key>name</key>
+	<string>sidir</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>sidir</string>
+				<key>script</key>
+				<string>require 'sidir'
+
+puts Sidir::find "{query}"</string>
+				<key>subtext</key>
+				<string>Search your iOS simulator directory...</string>
+				<key>title</key>
+				<string>Sidir</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>CC3BF280-4BBE-40F1-B7DC-2DF24FDE5A17</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<true/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<true/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query} removed from simulator</string>
+				<key>title</key>
+				<string>Sidir</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E16D16AC-1B3C-4606-92AB-765D6ECB1190</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.action.revealfile</string>
+			<key>uid</key>
+			<string>AAA3065F-AFD0-40C4-995E-55BB621614FA</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>puts Dir["{query}/*.app"].first
+
+`osascript -e 'tell application "Finder" to delete POSIX file "{query}"'`</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>082C9CE0-2FF2-4865-BF9A-478CDA87D084</string>
+		</dict>
+	</array>
+	<key>uidata</key>
+	<dict>
+		<key>082C9CE0-2FF2-4865-BF9A-478CDA87D084</key>
+		<dict>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+		<key>AAA3065F-AFD0-40C4-995E-55BB621614FA</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>CC3BF280-4BBE-40F1-B7DC-2DF24FDE5A17</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>E16D16AC-1B3C-4606-92AB-765D6ECB1190</key>
+		<dict>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>paul-samuels.com</string>
+</dict>
+</plist>
