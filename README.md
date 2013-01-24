@@ -1,0 +1,2 @@
+sidir-alfred-workflow
+=====================
