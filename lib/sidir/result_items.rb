@@ -1,0 +1,6 @@
+require 'sidir/result_items/result_item'
+require 'sidir/result_items/path_result'
+require 'sidir/result_items/simulator_application_result'
+require 'sidir/result_items/null_result'
+require 'sidir/result_items/simulator_result'
+require 'sidir/result_items/application_result'
