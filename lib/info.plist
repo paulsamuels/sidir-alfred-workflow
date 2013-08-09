@@ -23,9 +23,9 @@
 				<key>destinationuid</key>
 				<string>AAA3065F-AFD0-40C4-995E-55BB621614FA</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>262144</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Reveal in Finder</string>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
@@ -33,7 +33,23 @@
 				<key>modifiers</key>
 				<integer>524288</integer>
 				<key>modifiersubtext</key>
-				<string>Move app to trash</string>
+				<string>Move to trash</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8721DA0E-FFC4-4023-823E-814170E16EC6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>DA7FBCB2-0A65-420F-A580-7B2327EBDA74</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Browse in Alfred</string>
 			</dict>
 		</array>
 	</dict>
@@ -41,10 +57,64 @@
 	<string>Paul Samuels</string>
 	<key>description</key>
 	<string>Sidir</string>
+	<key>disabled</key>
+	<false/>
 	<key>name</key>
 	<string>sidir</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.action.revealfile</string>
+			<key>uid</key>
+			<string>AAA3065F-AFD0-40C4-995E-55BB621614FA</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<true/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<true/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query} removed from simulator</string>
+				<key>title</key>
+				<string>Sidir</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E16D16AC-1B3C-4606-92AB-765D6ECB1190</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>puts Dir["{query}/*.app"].first
+
+`osascript -e 'tell application "Finder" to delete POSIX file "{query}"'`</string>
+				<key>type</key>
+				<integer>2</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>082C9CE0-2FF2-4865-BF9A-478CDA87D084</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -71,52 +141,28 @@ puts Sidir::find "{query}"</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>CC3BF280-4BBE-40F1-B7DC-2DF24FDE5A17</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<true/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<true/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query} removed from simulator</string>
-				<key>title</key>
-				<string>Sidir</string>
-			</dict>
+			<dict/>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.openfile</string>
 			<key>uid</key>
-			<string>E16D16AC-1B3C-4606-92AB-765D6ECB1190</string>
-		</dict>
-		<dict>
-			<key>type</key>
-			<string>alfred.workflow.action.revealfile</string>
-			<key>uid</key>
-			<string>AAA3065F-AFD0-40C4-995E-55BB621614FA</string>
+			<string>8721DA0E-FFC4-4023-823E-814170E16EC6</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>puts Dir["{query}/*.app"].first
-
-`osascript -e 'tell application "Finder" to delete POSIX file "{query}"'`</string>
-				<key>type</key>
-				<integer>2</integer>
-			</dict>
+			<dict/>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.action.browseinalfred</string>
 			<key>uid</key>
-			<string>082C9CE0-2FF2-4865-BF9A-478CDA87D084</string>
+			<string>DA7FBCB2-0A65-420F-A580-7B2327EBDA74</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>uidata</key>
@@ -126,6 +172,11 @@ puts Sidir::find "{query}"</string>
 			<key>ypos</key>
 			<real>120</real>
 		</dict>
+		<key>8721DA0E-FFC4-4023-823E-814170E16EC6</key>
+		<dict>
+			<key>ypos</key>
+			<real>240</real>
+		</dict>
 		<key>AAA3065F-AFD0-40C4-995E-55BB621614FA</key>
 		<dict>
 			<key>ypos</key>
@@ -134,7 +185,12 @@ puts Sidir::find "{query}"</string>
 		<key>CC3BF280-4BBE-40F1-B7DC-2DF24FDE5A17</key>
 		<dict>
 			<key>ypos</key>
-			<real>60</real>
+			<real>170</real>
+		</dict>
+		<key>DA7FBCB2-0A65-420F-A580-7B2327EBDA74</key>
+		<dict>
+			<key>ypos</key>
+			<real>360</real>
 		</dict>
 		<key>E16D16AC-1B3C-4606-92AB-765D6ECB1190</key>
 		<dict>
