@@ -125,7 +125,8 @@
 				<key>keyword</key>
 				<string>sidir</string>
 				<key>script</key>
-				<string>require 'sidir'
+				<string>$:.&lt;&lt; File.expand_path('../', __FILE__)
+require 'sidir'
 
 puts Sidir::find "{query}"</string>
 				<key>subtext</key>
